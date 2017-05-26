@@ -1,0 +1,3 @@
+[26-May-2017 03:02:57 America/Los_Angeles] PHP Fatal error:  Call to undefined function get_avatar() in /home/cipiyohc/public_html/mugee/wp-content/themes/freelanceengine/mobile/template/post-item.php on line 6
+[26-May-2017 03:03:00 America/Los_Angeles] PHP Fatal error:  Call to undefined function get_avatar() in /home/cipiyohc/public_html/mugee/wp-content/themes/freelanceengine/mobile/template/post-item.php on line 6
+[26-May-2017 03:03:05 America/Los_Angeles] PHP Fatal error:  Call to undefined function get_query_var() in /home/cipiyohc/public_html/mugee/wp-content/themes/freelanceengine/mobile/template/bid-history-item.php on line 8

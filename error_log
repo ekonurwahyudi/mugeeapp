@@ -1,0 +1,2 @@
+[26-May-2017 03:03:09 America/Los_Angeles] PHP Fatal error:  Call to undefined function et_get_mobile_header() in /home/cipiyohc/public_html/mugee/wp-content/themes/freelanceengine/mobile/index.php on line 2
+[26-May-2017 03:03:12 America/Los_Angeles] PHP Fatal error:  Call to undefined function et_get_mobile_header() in /home/cipiyohc/public_html/mugee/wp-content/themes/freelanceengine/mobile/index.php on line 2
