@@ -14,7 +14,7 @@
         $bid_accepted       = $convert->accepted;
         $project_status     = $convert->post_status;
         $profile_id         = get_user_meta($post->post_author,'user_profile_id', true);
-        $currency           = ae_get_option('content_currency',array('align' => 'left', 'code' => 'USD', 'icon' => '$'));
+        $currency           = ae_get_option('content_currency',array('align' => 'left', 'code' => 'IDR', 'icon' => 'Rp. '));
         $project            = $convert;
         $exp                = $convert->et_expired_date;
 ?>
@@ -55,7 +55,7 @@
             <li>
                 <?php
                     if($convert->total_bids && $convert->total_bids > 1) {
-                        printf(__('<span class="number">%d</span> bids', ET_DOMAIN), $convert->total_bids);
+                        printf(__('<span class="number">%d</span> bids', ET_DOMAIN), $convertd->total_bids);
                     }else {
                         printf(__('<span class="number">%d</span> bid', ET_DOMAIN), $convert->total_bids);
                     }
@@ -188,7 +188,7 @@
             <?php get_template_part('mobile/template-js/form','review-project'); ?>
         </div>
         <!-- end form bid !-->
-    	<h2 class="title-content"><?php _e('Project description:',ET_DOMAIN);?></h2>
+    	<h2 class="title-content"><?php _e('Deskripsi Ikan:',ET_DOMAIN);?></h2>
         <?php
             the_content();
             if(function_exists('et_render_custom_field')) {
