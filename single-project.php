@@ -32,7 +32,7 @@
             </div>
             <div class="info-bottom">
                 <span class="name-author">
-                    <?php printf(__('Posted by %s',ET_DOMAIN), get_the_author_meta( 'display_name', $convert->post_author ));?>
+                    <?php printf(__('Dilelang Oleh %s',ET_DOMAIN), get_the_author_meta( 'display_name', $convert->post_author ));?>
                 </span>
                 <span class="price-project">
                     <?php echo $convert->budget; ?>
@@ -40,33 +40,14 @@
             </div>
         </div>
     </div>
+
     <div class="info-bid-wrapper">
-        <ul class="bid-top">
-            <li>
-                <?php
-                    $total_count = get_comments(array( 'post_id' => $post->ID, 'type' => 'comment', 'count' => true, 'status' => 'approve' ));
-                    if($total_count < 1){
-                        printf(__('<span class="number">%d</span>Comment', ET_DOMAIN), intval($total_count));
-                    }else {
-                        printf(__('<span class="number">%d</span>Comments', ET_DOMAIN), $total_count);
-                    }
-                ?>
-            </li>
-            <li>
-                <?php
-                    if($convert->total_bids && $convert->total_bids > 1) {
-                        printf(__('<span class="number">%d</span> bids', ET_DOMAIN), $convertd->total_bids);
-                    }else {
-                        printf(__('<span class="number">%d</span> bid', ET_DOMAIN), $convert->total_bids);
-                    }
-                ?>
-            </li>
-            <li><span class="number"><?php echo fre_price_format($convert->bid_average); ?></span> <?php printf(__("Avg Bids(%s)",ET_DOMAIN), $currency['code']);?></li>
-            <li class="clearfix"></li>
-            <li class="stt-bid">
-            	<div class="time">
-            		<span class="number"><?php _e("Open", ET_DOMAIN); ?></span><?php if( empty($exp)) printf(__('%s ago',ET_DOMAIN), human_time_diff( get_the_time('U'), time() ) ); else printf(__('%s left',ET_DOMAIN), human_time_diff( time(), strtotime($exp)) );  ?>
-                </div>
+       
+           
+            
+            
+    
+            	
                 <p class="btn-warpper-bid">
                 <?php if( !$user_ID && $project_status == 'publish'){ ?>
                         <a href="#"  class="btn-apply-project-item btn-login-trigger btn-bid btn-bid-mobile" ><?php  _e('Bid',ET_DOMAIN);?></a>
@@ -144,10 +125,11 @@
                         }
                     }
                     ?>
-            </li>
-        </ul>
+   
+    
         <div class="clearfix"></div>
     </div>
+
     <?php
     // render open workspace button
     if(fre_access_workspace($post)) {
@@ -196,7 +178,7 @@
             }
         ?>
         <?php list_tax_of_project( get_the_ID(), __('Skills required:',ET_DOMAIN), $tax_name = 'skill' ); ?>
-        <?php list_tax_of_project( get_the_ID(), __('Category:',ET_DOMAIN), $tax_name = 'project_category' ); ?>
+        
 
         <?php
 
@@ -209,7 +191,7 @@
                   ), OBJECT );
             if(!empty($attachment)) {
                 echo '<div class="project-attachment">';
-                echo '<h3 class="title-content">'. __("Attachment:", ET_DOMAIN) .'</h3>';
+                echo '<h3 class="title-content">'. __("Gambar Ikan:", ET_DOMAIN) .'</h3>';
                 echo '<ul class="list-file-attack-report">';
                 foreach ($attachment as $key => $att) {
                     $file_type = wp_check_filetype($att->post_title, array('jpg' => 'image/jpeg',
@@ -234,7 +216,7 @@
 
         <?php
             // Action to add more in mobile single project template
-            do_action( 'after_mobile_single_project', $project );
+            do_action( 'after_mobile_single_project', $project )
         ?>
     </div>
     <?php } ?>
@@ -245,9 +227,9 @@
                     <a href="#history-tabs" role="tab" data-toggle="tab">
                         <?php
                             if($convert->total_bids>1)
-                                printf(__("%d Bidders", ET_DOMAIN), (int)$convert->total_bids);
+                                printf(__("%d Riwayat Bid", ET_DOMAIN), (int)$convert->total_bids);
                             else
-                                printf(__("%d Bidder", ET_DOMAIN), (int)$convert->total_bids);
+                                printf(__("%d Riwayat Bid", ET_DOMAIN), (int)$convert->total_bids);
                         ?>
                     </a>
                 </li>
@@ -263,9 +245,9 @@
                         }
                         // comments_number (__('0 Comment', ET_DOMAIN), __('1 Comment', ET_DOMAIN), __('% Comments', ET_DOMAIN));
                         if($total_comment > 1) {
-                            printf(__("%d Comments", ET_DOMAIN), $total_comment);
+                            printf(__("%d Komentar", ET_DOMAIN), $total_comment);
                         }else{
-                            printf(__("%d Comment", ET_DOMAIN), $total_comment);
+                            printf(__("%d Komentar", ET_DOMAIN), $total_comment);
                         }
                     ?>
                     </a>
