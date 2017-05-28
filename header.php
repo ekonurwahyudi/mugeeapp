@@ -16,10 +16,10 @@
 ?>
 <!DOCTYPE html>
 <!--[if IE 7]>
-	<html class="ie ie7" <?php language_attributes(); ?>>
+    <html class="ie ie7" <?php language_attributes(); ?>>
 <![endif]-->
 <!--[if IE 8]>
-	<html class="ie ie8" <?php language_attributes(); ?>>
+    <html class="ie ie8" <?php language_attributes(); ?>>
 <![endif]-->
 <!--[if !(IE 7) | !(IE 8)  ]><!-->
 <html <?php language_attributes(); ?>>
@@ -82,74 +82,58 @@
     <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
         <ul class="list-info-user-nav">
             <?php if(is_user_logged_in()){ ?>
-        	<li>
-            	<div class="avatar-user-menu">
+            <li>
+                <div class="avatar-user-menu">
                     <?php echo get_avatar( $user_data->ID, 48 ); ?>
                 </div>
                 <div class="user-name-menu">
-                	<span class="name"><?php echo $user_data->display_name; ?></span>
+                    <span class="name"><?php echo $user_data->display_name; ?></span>
                     <span class="position"><?php echo isset($profile->et_professional_title) ? $profile->et_professional_title : ''; ?></span>
                 </div>
             </li>
             <?php if( ae_user_role($user_ID) == FREELANCER ){
                 $user_available = isset($user_data->user_available) && $user_data->user_available == "on" ? 'checked' : '';
                 ?>
-            <li>
-                <span class="switch-for-hide tooltip-style" data-toggle="tooltip" data-placement="top"
-                      title='<?php _e('Turn on to display an "Invite me" button on your profile, allowing potential employers to suggest projects for you.', ET_DOMAIN);  ?>'>
-                <input type="checkbox" <?php echo $user_available; ?> class="js-switch user-available" name="user_available"/>
-                <span class="user-status-text text <?php echo $user_available ? 'yes' : 'no' ?>">
-                    <?php echo $user_available ? __('Yes', ET_DOMAIN) : __('No', ET_DOMAIN); ?>
-                </span>
-            </li>
+           
             <?php } ?>
             <?php //if( fre_share_role() || ae_user_role($current_user->ID) == FREELANCER ){ ?>
             <li>
-            	<a href="<?php echo et_get_page_link('profile'); ?>#tab_account" class="link-menu-nav">
-                    <?php _e('Account Details', ET_DOMAIN) ?>
+                <a href="<?php echo et_get_page_link('profile'); ?>#tab_account" class="link-menu-nav">
+                    <?php _e('Profil', ET_DOMAIN) ?>
                 </a>
             </li>
             <?php //} ?>
             <?php if( fre_share_role() || ae_user_role($current_user->ID) == FREELANCER ){ ?>
             <li>
-            	<a href="http://cipiyoh.com/mugee/submit-project/" class="link-menu-nav">
+                <a href="http://cipiyoh.com/mugee/submit-project/" class="link-menu-nav">
                     <?php _e('Upload Ikan', ET_DOMAIN) ?>
                 </a>
             </li>
-    
-            <?php } ?>
+           <?php } ?>
             <li>
-            	<a href="http://cipiyoh.com/mugee/feedback/" class="link-menu-nav">
+                <a href="http://cipiyoh.com/mugee/bantuan/" class="link-menu-nav">
+                    <?php _e('Bantuan', ET_DOMAIN) ?>
+                </a>
+            </li>
+             <li>
+                <a href=" <a href="javascript:void( window.open( 'https://form.jotform.me/71420867267461', 'blank', 'scrollbars=yes, toolbar=no, width=700, height=500' ) ) ">" class="link-menu-nav">
                     <?php _e('Feedback', ET_DOMAIN) ?>
                 </a>
             </li>
-            <li>
-                <a href="<?php echo et_get_page_link('profile'); ?>#tab_notification" class="link-menu-nav trigger-notification" >
-                    <?php
-                        _e("Notifications", ET_DOMAIN);
-                        if($notify_number) echo ' <span class="notify-number">('.$notify_number.')</span>';
-                    ?>
-                </a>
-            </li>
             <?php do_action('fre_profile_tabs_on_mobile'); ?>
-            <li>
-                <a href="<?php echo et_get_page_link('profile'); ?>#tab_change_pw" class="mb-change-password">
-                    <i class="fa fa-key"></i>
-                    <?php _e('Change Password', ET_DOMAIN) ?>
-                </a>
-            </li>
+           
             <?php if(ae_get_option('use_escrow', false)) {
                 do_action( 'ae_escrow_stripe_user_field');
             } ?>
             <li>
                 <a href="<?php echo wp_logout_url( home_url() ); ?>" class="logout-link">
-                    <i class="fa fa-sign-out"></i><?php _e('Log out', ET_DOMAIN) ?>
+                    <i class="fa fa-sign-out"></i><?php _e('Keluar', ET_DOMAIN) ?>
                 </a>
             </li>
             <?php } else { ?>
             <li>
                 <a href="<?php echo et_get_page_link('auth') ?>" class="creat-team-link">
-                    <i class="fa fa-sign-in"></i><?php _e('Sign in', ET_DOMAIN) ?>
+                    <i class="fa fa-sign-in"></i><?php _e('Masuk', ET_DOMAIN) ?>
                 </a>
             </li>
             <?php } ?>
@@ -158,7 +142,7 @@
     <?php } ?>
     <header id="header">
         <div class="container-fluid">
-        	<div class="row">
+            <div class="row">
                 <div class="col-xs-3">
                 <?php if(has_nav_menu('et_mobile')) { ?>
                     <div id="right_menu">
