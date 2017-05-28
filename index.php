@@ -12,6 +12,7 @@
 			} else {
 				echo '<h2>'.__( 'There is no posts yet', ET_DOMAIN ).'</h2>';
 			}
+            
 		?>
 		</div><!-- LEFT CONTENT -->
 	</div>

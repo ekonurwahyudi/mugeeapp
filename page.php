@@ -21,6 +21,7 @@
 			</div>			
 		</div><!-- SINGLE TITLE + CATEGORY -->
 
+        
 		<div class="clearfix"></div>
 
 		<div class="col-md-12 col-xs-12 blog-content-wrapper">

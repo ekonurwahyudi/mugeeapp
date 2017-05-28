@@ -18,8 +18,10 @@
             <span class="position"><?php echo $convert->et_professional_title ?></span>
         </div>
     </div>
+    
     <ul class="wrapper-achivement">
         <li>          
+    
             <div class="rate-it" data-score="<?php echo $convert->rating_score ; ?>"></div>      
         </li>
         <li><span><?php if(!empty($convert->experience)) echo '+ '.$convert->experience;  ?> </span></li>
