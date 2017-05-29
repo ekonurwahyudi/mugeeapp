@@ -32,11 +32,11 @@
     $country        = isset($profile->tax_input['country'][0]) ? $profile->tax_input['country'][0]->name : '' ;
     $category       = isset($profile->tax_input['project_category'][0]) ? $profile->tax_input['project_category'][0]->slug : '' ;
 
-	et_get_mobile_header();
+    et_get_mobile_header();
 ?>
 <section class="section-wrapper section-user-profile list-profile-wrapper">
 
-	<div class="tabs-acc-details tab-profile mobile-tab-profile" id="tab_account" style="display:block">
+    <div class="tabs-acc-details tab-profile mobile-tab-profile" id="tab_account" style="display:block">
         <div class="user-profile-avatar" id="user_avatar_container">
             <span class="image" id="user_avatar_thumbnail">
                 <?php echo get_avatar( $user_data->ID, 90 ); ?>
@@ -48,13 +48,13 @@
         </div>
         <form class="form-mobile-wrapper form-user-profile" id="account_form">
             <div class="form-group-mobile">
-                <label><?php _e("Your Fullname", ET_DOMAIN) ?></label>
+                <label><?php _e("Nama Lengkap", ET_DOMAIN) ?></label>
                 <!-- <a href="#" class="icon-edit-profile-user edit-info-user"><i class="fa fa-pencil"></i></a> -->
                 <input type="text" id="display_name" name="display_name" value="<?php echo $user_data->display_name ?>" placeholder="<?php _e("Full name", ET_DOMAIN); ?>">
             </div>
             <div class="form-group-mobile">
-                <label><?php _e("Location", ET_DOMAIN) ?></label>
-                <input type="text" id="location" name="location" value="<?php echo $user_data->location ?>" placeholder="<?php _e("Location", ET_DOMAIN); ?>">
+                <label><?php _e("Nomor HP", ET_DOMAIN) ?></label>
+                <input type="text" id="location" name="location" value="<?php echo $user_data->location ?>" placeholder="<?php _e("Nomor HP", ET_DOMAIN); ?>">
             </div>
             <div class="form-group-mobile">
                 <label><?php _e("Email Address", ET_DOMAIN) ?></label>
@@ -65,14 +65,11 @@
             } ?>
             <?php if( ae_get_option('pay_to_bid', false) ){ ?>
              <div class="form-group-mobile">
-               <label>
-                    <?php _e('Your Credit number: ', ET_DOMAIN);  ?>
-                    <?php echo get_user_credit_number( $user_ID ) ; ?>
-                </label>
+               
             </div>
             <?php } ?>
             <p class="btn-warpper-bid">
-                <input type="submit" class="btn-submit btn-sumary btn-bid" value="<?php _e("Update", ET_DOMAIN) ?>" />
+                <input type="submit" class="btn-submit btn-sumary btn-bid" value="<?php _e("Simpan", ET_DOMAIN) ?>" />
             </p>
         </form>
     </div>
@@ -84,14 +81,14 @@
                 <p><?php _e('<i class="fa fa-warning"></i> You must complete your profile to do any activities on site', ET_DOMAIN);?></p>
             </div>
         <?php } ?>
-    	<form class="form-mobile-wrapper form-user-profile" id="profile_form">
+        <form class="form-mobile-wrapper form-user-profile" id="profile_form">
             <div class="form-group-mobile edit-profile-title">
                 <label><?php _e("Your Professional Title", ET_DOMAIN) ?></label>
                 <!-- <a href="#" class="icon-edit-profile-user edit-info-user"><i class="fa fa-pencil"></i></a> -->
                 <input type="text" id="et_professional_title" value="<?php echo $job_title; ?>" name="et_professional_title" placeholder="<?php _e("Title", ET_DOMAIN); ?>">
             </div>
             <div class="form-group-mobile">
-            	<div class="hourly-rate-form">
+                <div class="hourly-rate-form">
                     <label><?php _e("Your Hourly Rate", ET_DOMAIN) ?></label>
                     <!-- <a href="#" class="icon-edit-profile-user edit-info-user"><i class="fa fa-pencil"></i></a> -->
 
@@ -260,7 +257,7 @@
     </div>
     <?php } ?>
     <div class="tabs-project-details tab-profile mobile-tab-profile collapse" id="tab_project">
-    	<form class="form-mobile-wrapper form-user-profile">
+        <form class="form-mobile-wrapper form-user-profile">
             <div class="form-group-mobile edit-profile-title user-profile-history info-project-items">
                 <?php if( $user_role == FREELANCER || fre_share_role() ){ ?>
                 <!-- BIDDING -->
@@ -322,19 +319,19 @@
     <div class="tabs-acc-details tab-profile collapse" id="tab_change_pw">
         <form class="form-mobile-wrapper form-user-profile chane_pass_form" id="chane_pass_form">
             <div class="form-group-mobile edit-profile-title">
-                <label><?php _e("Your Old Password", ET_DOMAIN) ?></label>
-                <input type="password" id="old_password" name="old_password" placeholder="<?php _e("Old password", ET_DOMAIN); ?>">
+                <label><?php _e("Password Lama", ET_DOMAIN) ?></label>
+                <input type="password" id="old_password" name="old_password" placeholder="<?php _e("password Lama", ET_DOMAIN); ?>">
             </div>
             <div class="form-group-mobile">
-                <label><?php _e("Your New Password", ET_DOMAIN) ?></label>
-                <input type="password" id="new_password" name="new_password" placeholder="<?php _e("New password", ET_DOMAIN); ?>">
+                <label><?php _e("Password Baru", ET_DOMAIN) ?></label>
+                <input type="password" id="new_password" name="new_password" placeholder="<?php _e("Password Baru", ET_DOMAIN); ?>">
             </div>
             <div class="form-group-mobile">
-                <label><?php _e("Retype New Password", ET_DOMAIN) ?></label>
-                <input type="password" id="renew_password" name="renew_password" placeholder="<?php _e("Retype again", ET_DOMAIN); ?>">
+                <label><?php _e("Ulangi Password", ET_DOMAIN) ?></label>
+                <input type="password" id="renew_password" name="renew_password" placeholder="<?php _e("Ulangin Lagi", ET_DOMAIN); ?>">
             </div>
             <p class="btn-warpper-bid">
-                <input type="submit" class="btn-submit btn-sumary btn-bid" value="<?php _e("Change", ET_DOMAIN) ?>" />
+                <input type="submit" class="btn-submit btn-sumary btn-bid" value="<?php _e("Simpan", ET_DOMAIN) ?>" />
             </p>
         </form>
     </div>
@@ -357,5 +354,5 @@
 <!-- END / CURRENT SKILLS -->
 
 <?php
-	et_get_mobile_footer();
+    et_get_mobile_footer();
 ?>
