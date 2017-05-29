@@ -170,7 +170,7 @@
             <?php get_template_part('mobile/template-js/form','review-project'); ?>
         </div>
         <!-- end form bid !-->
-    	<h2 class="title-content"><?php _e('Deskripsi Ikan:',ET_DOMAIN);?></h2>  //koding untuk menanpilkan informasi mengenai ikan
+    	<h2 class="title-content"><?php _e('Deskripsi Ikan:',ET_DOMAIN);?></h2>  <!--// bar informasi mengenai ikan -->
         <?php
             the_content();
             if(function_exists('et_render_custom_field')) {
