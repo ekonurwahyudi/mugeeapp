@@ -98,6 +98,11 @@
             <?php } ?>
             <?php //if( fre_share_role() || ae_user_role($current_user->ID) == FREELANCER ){ ?>
             <li>
+                <a href="http://cipiyoh.com/mugee/" class="link-menu-nav">
+                    <?php _e('Home', ET_DOMAIN) ?>
+                </a>
+            </li>
+            <li>
                 <a href="<?php echo et_get_page_link('profile'); ?>#tab_account" class="link-menu-nav">
                     <?php _e('Akun', ET_DOMAIN) ?>
                 </a>
