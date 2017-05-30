@@ -170,7 +170,7 @@
             <?php get_template_part('mobile/template-js/form','review-project'); ?>
         </div>
         <!-- end form bid !-->
-    	<h2 class="title-content"><?php _e('Deskripsi Ikan:',ET_DOMAIN);?></h2>  <!--// bar informasi mengenai ikan -->
+    	<h2 class="title-content"><?php _e('Deskripsi Ikan:',ET_DOMAIN);?></h2>
         <?php
             the_content();
             if(function_exists('et_render_custom_field')) {
@@ -227,9 +227,9 @@
                     <a href="#history-tabs" role="tab" data-toggle="tab">
                         <?php
                             if($convert->total_bids>1)
-                                printf(__("%d Riwayat Bid", ET_DOMAIN), (int)$convert->total_bids); //menanpilkan riwayat penawaran
+                                printf(__("%d Riwayat Bid", ET_DOMAIN), (int)$convert->total_bids);
                             else
-                                printf(__("%d Riwayat Bid", ET_DOMAIN), (int)$convert->total_bids); //menanpilkan riwayat penawaran
+                                printf(__("%d Riwayat Bid", ET_DOMAIN), (int)$convert->total_bids);
                         ?>
                     </a>
                 </li>
@@ -245,9 +245,9 @@
                         }
                         // comments_number (__('0 Comment', ET_DOMAIN), __('1 Comment', ET_DOMAIN), __('% Comments', ET_DOMAIN));
                         if($total_comment > 1) {
-                            printf(__("%d Komentar", ET_DOMAIN), $total_comment); //menampilkan komentar yang dituliskan oleh sipembeli
+                            printf(__("%d Komentar", ET_DOMAIN), $total_comment);
                         }else{
-                            printf(__("%d Komentar", ET_DOMAIN), $total_comment); //menampilkan komentar yang dituliskan oleh sipembeli
+                            printf(__("%d Komentar", ET_DOMAIN), $total_comment);
                         }
                     ?>
                     </a>
@@ -278,7 +278,7 @@
                         endwhile;
                         echo '</ul>';
 
-                        // Daftar paging pada projek ini
+                        // paging list bid on this project
                         if($q_bid->max_num_pages > 1){
                             echo '<div class="paginations-wrapper">';
                                 $q_bid->query = array_merge(  $q_bid->query ,array('is_single' => 1 ) ) ;
@@ -288,7 +288,7 @@
                     echo '</div>';
 
 
-                    // paging selesai
+                    // end paging
                 else :
                     get_template_part( 'mobile/template/bid', 'not-item' );
                 endif;
