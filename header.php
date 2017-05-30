@@ -99,15 +99,16 @@
             <?php //if( fre_share_role() || ae_user_role($current_user->ID) == FREELANCER ){ ?>
             <li>
                 <a href="<?php echo et_get_page_link('profile'); ?>#tab_account" class="link-menu-nav">
-                    <?php _e('Profil', ET_DOMAIN) ?>
+                    <?php _e('Akun', ET_DOMAIN) ?>
                 </a>
             </li>
             <?php //} ?>
             <?php if( fre_share_role() || ae_user_role($current_user->ID) == FREELANCER ){ ?>
             <li>
-                <a href="http://cipiyoh.com/mugee/submit-project/" class="link-menu-nav">
-                    <?php _e('Upload Ikan', ET_DOMAIN) ?>
+            <a href="<?php echo et_get_page_link('profile'); ?>#tab_profile" class="link-menu-nav">
+                    <?php _e('Profil', ET_DOMAIN) ?>
                 </a>
+
             </li>
            <?php } ?>
             <li>
@@ -116,12 +117,22 @@
                 </a>
             </li>
              <li>
-                <a href=" <a href="javascript:void( window.open( 'https://form.jotform.me/71420867267461', 'blank', 'scrollbars=yes, toolbar=no, width=700, height=500' ) ) ">" class="link-menu-nav">
+                <a href="http://cipiyoh.com/mugee/feedback/" class="link-menu-nav">
                     <?php _e('Feedback', ET_DOMAIN) ?>
                 </a>
             </li>
+             <li>
+                <a href="http://cipiyoh.com/mugee/hubungi/" class="link-menu-nav">
+                    <?php _e('Hubungi Kami', ET_DOMAIN) ?>
+                </a>
+            </li>
             <?php do_action('fre_profile_tabs_on_mobile'); ?>
-           
+            <li>
+                <a href="<?php echo et_get_page_link('profile'); ?>#tab_change_pw" class="mb-change-password">
+                    <i class="fa fa-key"></i>
+                    <?php _e('Ganti Password', ET_DOMAIN) ?>
+                </a>
+            </li>
             <?php if(ae_get_option('use_escrow', false)) {
                 do_action( 'ae_escrow_stripe_user_field');
             } ?>
