@@ -3,8 +3,11 @@
         <span class="bell-icon">
             <i class="fa fa-bell-o"></i>
         </span>
+    
     </a>
+    
     <a href="<?php echo et_get_page_link('profile'); ?>" class="logged-in" class="logged-in">
         {{= avatar }}
     </a>
+    
 </script>

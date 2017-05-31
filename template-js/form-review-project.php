@@ -15,6 +15,7 @@ $review = isset($_GET['review']) ? $_GET['review'] : 0;
         <label for="post_content"><?php _e('Message review profile ',ET_DOMAIN); ?></label>
         <?php wp_editor( '', 'comment_content', ae_editor_settings() );  ?>
     </div>                  
+    
     <input type="hidden" name="project_id" value="<?php the_ID(); ?>" />                    
     <?php if($status =='complete'){?>                       
         <input type="hidden" name="action" value="ae-freelancer-review" />

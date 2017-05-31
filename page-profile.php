@@ -32,11 +32,11 @@
     $country        = isset($profile->tax_input['country'][0]) ? $profile->tax_input['country'][0]->name : '' ;
     $category       = isset($profile->tax_input['project_category'][0]) ? $profile->tax_input['project_category'][0]->slug : '' ;
 
-	et_get_mobile_header();
+    et_get_mobile_header();
 ?>
 <section class="section-wrapper section-user-profile list-profile-wrapper">
 
-	<div class="tabs-acc-details tab-profile mobile-tab-profile" id="tab_account" style="display:block">
+    <div class="tabs-acc-details tab-profile mobile-tab-profile" id="tab_account" style="display:block">
         <div class="user-profile-avatar" id="user_avatar_container">
             <span class="image" id="user_avatar_thumbnail">
                 <?php echo get_avatar( $user_data->ID, 90 ); ?>
@@ -49,7 +49,11 @@
         <form class="form-mobile-wrapper form-user-profile" id="account_form">
             <div class="form-group-mobile">
                 <label><?php _e("Nama Lengkap", ET_DOMAIN) ?></label>
+<<<<<<< HEAD
                 <!-- <a href="#" class="edit profil"><i class="fa fa-pencil"></i></a> -->
+=======
+                <!-- <a href="#" class="icon-edit-profile-user edit-info-user"><i class="fa fa-pencil"></i></a> -->
+>>>>>>> 50972a60f5cb7b5f7c22d35167b053e854db611d
                 <input type="text" id="display_name" name="display_name" value="<?php echo $user_data->display_name ?>" placeholder="<?php _e("Full name", ET_DOMAIN); ?>">
             </div>
             <div class="form-group-mobile">
@@ -81,15 +85,21 @@
                 <p><?php _e('<i class="fa fa-warning"></i> Kamu harus Melengkapi data', ET_DOMAIN);?></p>
             </div>
         <?php } ?>
-    	<form class="form-mobile-wrapper form-user-profile" id="profile_form">
+        <form class="form-mobile-wrapper form-user-profile" id="profile_form">
             <div class="form-group-mobile edit-profile-title">
                 <label><?php _e("Nama Lengkap", ET_DOMAIN) ?></label>
                 <!-- <a href="#" class="icon-edit-profile-user edit-info-user"><i class="fa fa-pencil"></i></a> -->
                 <input type="text" id="et_professional_title" value="<?php echo $job_title; ?>" name="et_professional_title" placeholder="<?php _e(" ", ET_DOMAIN); ?>">
             </div>
+<<<<<<< HEAD
          <div class="form-group-mobile">
             	<div class="hourly-rate-form">
         <!--            <label><?php _e("Your Hourly Rate", ET_DOMAIN) ?></label>
+=======
+            <div class="form-group-mobile">
+                <div class="hourly-rate-form">
+                    <label><?php _e("Your Hourly Rate", ET_DOMAIN) ?></label>
+>>>>>>> 50972a60f5cb7b5f7c22d35167b053e854db611d
                     <!-- <a href="#" class="icon-edit-profile-user edit-info-user"><i class="fa fa-pencil"></i></a> -->
 
                 </div>
@@ -204,7 +214,7 @@
     </div>
     <?php } ?>
     <div class="tabs-project-details tab-profile mobile-tab-profile collapse" id="tab_project">
-    	<form class="form-mobile-wrapper form-user-profile">
+        <form class="form-mobile-wrapper form-user-profile">
             <div class="form-group-mobile edit-profile-title user-profile-history info-project-items">
                 <?php if( $user_role == FREELANCER || fre_share_role() ){ ?>
                 <!-- BIDDING -->
@@ -301,5 +311,5 @@
 <!-- END / CURRENT SKILLS -->
 
 <?php
-	et_get_mobile_footer();
+    et_get_mobile_footer();
 ?>
