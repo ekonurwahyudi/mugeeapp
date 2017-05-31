@@ -49,7 +49,15 @@
         <form class="form-mobile-wrapper form-user-profile" id="account_form">
             <div class="form-group-mobile">
                 <label><?php _e("Nama Lengkap", ET_DOMAIN) ?></label>
+<<<<<<< HEAD
                 <!-- <a href="#" class="edit profil"><i class="fa fa-pencil"></i></a> -->
+=======
+<<<<<<< HEAD
+                <!-- <a href="#" class="edit profil"><i class="fa fa-pencil"></i></a> -->
+=======
+                <!-- <a href="#" class="icon-edit-profile-user edit-info-user"><i class="fa fa-pencil"></i></a> -->
+>>>>>>> 50972a60f5cb7b5f7c22d35167b053e854db611d
+>>>>>>> d3f03da00cb35748dbd453fdfbf5933e58d2dfe0
                 <input type="text" id="display_name" name="display_name" value="<?php echo $user_data->display_name ?>" placeholder="<?php _e("Full name", ET_DOMAIN); ?>">
             </div>
             <div class="form-group-mobile">
@@ -87,9 +95,21 @@
                 <!-- <a href="#" class="icon-edit-profile-user edit-info-user"><i class="fa fa-pencil"></i></a> -->
                 <input type="text" id="et_professional_title" value="<?php echo $job_title; ?>" name="et_professional_title" placeholder="<?php _e(" ", ET_DOMAIN); ?>">
             </div>
+<<<<<<< HEAD
          <div class="form-group-mobile">
             	<div class="hourly-rate-form">
         <!--            <label><?php _e("Your Hourly Rate", ET_DOMAIN) ?></label>
+=======
+<<<<<<< HEAD
+         <div class="form-group-mobile">
+            	<div class="hourly-rate-form">
+        <!--            <label><?php _e("Your Hourly Rate", ET_DOMAIN) ?></label>
+=======
+            <div class="form-group-mobile">
+                <div class="hourly-rate-form">
+                    <label><?php _e("Your Hourly Rate", ET_DOMAIN) ?></label>
+>>>>>>> 50972a60f5cb7b5f7c22d35167b053e854db611d
+>>>>>>> d3f03da00cb35748dbd453fdfbf5933e58d2dfe0
                     <!-- <a href="#" class="icon-edit-profile-user edit-info-user"><i class="fa fa-pencil"></i></a> -->
 
                 </div>
