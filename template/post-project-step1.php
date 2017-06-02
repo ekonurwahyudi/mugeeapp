@@ -10,13 +10,13 @@
 ?>
 
 <div class="step-wrapper step-plan" id="step-plan">
-	<a href="#" class="step-heading active">
-    	<span class="number-step">1</span>
-        <span class="text-heading-step"><?php _e( 'Select your pricing plan' , ET_DOMAIN ); ?></span>
+    <a href="#" class="step-heading active">
+        <span class="number-step">1</span>
+        <span class="text-heading-step"><?php _e( 'Halaman ini untuk mengupload data ikan' , ET_DOMAIN ); ?></span>
         <i class="fa fa-caret-down"></i>
     </a>
     <div class="step-content-wrapper content">
-    	<ul class="list-price">
+        <ul class="list-price">
         <?php foreach ($packs as $key => $package) {
             $number_of_post =   $package->et_number_posts;
             $sku = $package->sku;
@@ -34,16 +34,16 @@
                     */
                     $number_of_post =   $package_data[$sku]['qty'];
                     if($number_of_post > 1 ) {
-                        $text = sprintf(__("You can submit %d posts using this plan.", ET_DOMAIN) , $number_of_post);
+                        $text = sprintf(__("Kamu bisa mengupload %d ikan disini.", ET_DOMAIN) , $number_of_post);
                     }
                     else  {
-                        $text = sprintf(__("You can submit %d post using this plan.", ET_DOMAIN) , $number_of_post);
+                        $text = sprintf(__("Kamu bisa mengupload %d ikan disini..", ET_DOMAIN) , $number_of_post);
                     }
                 }else {
                     /**
                      * print normal text if company dont have job left in this package
                     */
-                    $text = sprintf(__("You can submit %d posts using this plan.", ET_DOMAIN) , $number_of_post);
+                    $text = sprintf(__("Kamu bisa mengupload %d ikan disini", ET_DOMAIN) , $number_of_post);
                 }
             }
             $class_select = '';
@@ -54,26 +54,26 @@
                 }
             }
         ?>
-        	<li <?php echo $class_select; ?> data-sku="<?php echo $package->sku ?>" data-id="<?php echo $package->ID ?>" data-price="<?php echo $package->et_price; ?>"
+            <li <?php echo $class_select; ?> data-sku="<?php echo $package->sku ?>" data-id="<?php echo $package->ID ?>" data-price="<?php echo $package->et_price; ?>"
                 <?php if( $package->et_price ) { ?>
-                    data-label="<?php printf(__("You have selected: %s", ET_DOMAIN) , $package->post_title ); ?>"
+                    data-label="<?php printf(__(" ", ET_DOMAIN) , $package->post_title ); ?>"
                 <?php } else { ?>
-                    data-label="<?php _e("You are currently using the 'Free' plan", ET_DOMAIN); ?>"
+                    data-label="<?php _e("Masukkan data ikan anda", ET_DOMAIN); ?>"
                 <?php } ?>
              >
-            	<span class="price">
+                <span class="price">
                     <?php if( $package->et_price ) {
                         ae_price($package->et_price);
                     }else {
-                        _e("Free", ET_DOMAIN);
+                        _e("Gratis", ET_DOMAIN);
                     } ?>
                 </span>
                 <span class="title-plan">
-                    <span class="package-title"><?php echo $package->post_title .' - '; ?></span>
+                    
                     <span class="package-limit"><?php if($text) { echo $text; } ?></span>
-                    <span><?php echo $package->post_content; ?></span>
+                
                 </span>
-                <a href="#" class="btn btn-submit-price-plan select-plan"><?php _e( 'Select' , ET_DOMAIN ); ?></a>
+                <a href="#" class="btn btn-submit-price-plan select-plan"><?php _e( 'Pilih' , ET_DOMAIN ); ?></a>
                 <div class="clearfix"></div>
             </li>
         <?php }
