@@ -116,6 +116,11 @@
 
             </li>
            <?php } ?>
+           <li>
+                <a href="http://cipiyoh.com/mugee/submit-project/" class="link-menu-nav">
+                    <?php _e('Upload Ikan', ET_DOMAIN) ?>
+                </a>
+            </li>
             <li>
                 <a href="http://cipiyoh.com/mugee/bantuan/" class="link-menu-nav">
                     <?php _e('Bantuan', ET_DOMAIN) ?>
