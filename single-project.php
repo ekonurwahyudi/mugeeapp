@@ -216,7 +216,7 @@
 
         <?php
             // Action to add more in mobile single project template
-            do_action( 'after_mobile_single_project', $project );
+            do_action( 'after_mobile_single_project', $project )
         ?>
     </div>
     <?php } ?>
