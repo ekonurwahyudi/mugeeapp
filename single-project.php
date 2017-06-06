@@ -76,22 +76,22 @@
                                 <?php }
                             }
                             else { ?>
-                                <a href="#" id="<?php the_ID();?>"  class="btn-apply-project-item btn-bid" ><?php  _e('Opening',ET_DOMAIN);?></a>
+                                <a href="#" id="<?php the_ID();?>"  class="btn-apply-project-item btn-bid" ><?php  _e('Sedang dilelang',ET_DOMAIN);?></a>
                                 <?php
                             }
 
                         }
                         if($project_status == 'close'){
                             if( (int)$project->post_author == $user_ID){ ?>
-                                <a href="#" class="btn btn-primary btn-close-project"><?php _e("Close", ET_DOMAIN); ?></a>
+                                <a href="#" class="btn btn-primary btn-close-project"><?php _e("Tutup", ET_DOMAIN); ?></a>
                                 <a href="#" id="<?php the_ID();?>"   class="btn btn-primary btn-project-status btn-complete-project btn-complete-mobile" >
-                                    <?php  _e('Complete',ET_DOMAIN);?>
+                                    <?php  _e('Selesai',ET_DOMAIN);?>
                                 </a>
                                 <?php
                             } else {
                                 $freelan_id  = (int)get_post_field('post_author', $bid_accepted);
                                 if($freelan_id == $user_ID ) { ?>
-                                    <a href="#"  class="btn btn-primary btn-quit-project" title="<?php  _e('Discontinue',ET_DOMAIN);?>" ><?php  _e('Discontinue',ET_DOMAIN);?></a>
+                                    <a href="#"  class="btn btn-primary btn-quit-project" title="<?php  _e('Selesai',ET_DOMAIN);?>" ><?php  _e('Selesai',ET_DOMAIN);?></a>
                                 <?php }else{ ?>
                                     <a href="#"  class="btn btn-primary" title="<?php  _e('Working',ET_DOMAIN);?>" ><?php  _e('Working',ET_DOMAIN);?></a>
                                 <?php }
@@ -103,10 +103,10 @@
                             $comment        = get_comments( array('status'=> 'approve', 'type' => 'fre_review', 'post_id'=> get_the_ID() ) );
 
                             if( $user_ID == $freelan_id && empty( $comment ) ){ ?>
-                                <a href="#" id="<?php the_ID();?>" title="<?php  _e('Review job',ET_DOMAIN);?>" class="btn-bid btn-project-status btn-complete-project btn-complete-mobile" ><?php  _e('Review job',ET_DOMAIN);?></a>
+                                <a href="#" id="<?php the_ID();?>" title="<?php  _e('Ulasan',ET_DOMAIN);?>" class="btn-bid btn-project-status btn-complete-project btn-complete-mobile" ><?php  _e('Review job',ET_DOMAIN);?></a>
                                 <?php
                             } else { ?>
-                                <a href="#"  class="btn-bid" title="<?php  _e('Completed',ET_DOMAIN);?>" ><?php  _e('Completed',ET_DOMAIN);?></a>
+                                <a href="#"  class="btn-bid" title="<?php  _e('Selesai',ET_DOMAIN);?>" ><?php  _e('Selesai',ET_DOMAIN);?></a>
                                 <?php
                             }
                         } else{
@@ -131,26 +131,13 @@
     </div>
 
     <?php
-    // render open workspace button
-    if(fre_access_workspace($post)) {
-        $project_link = get_permalink( $post->ID );
-        if(isset($_REQUEST['workspace']) && $_REQUEST['workspace']) {
-            echo '<a class="workspace-link" style="font-weight:600;" href="'.get_permalink( $post->ID ).'">
-                <i class="fa fa-arrow-left"></i>'.__("Back To Project Page", ET_DOMAIN).
-            '</a>';
-        }else {
-            echo '<a class="workspace-link" style="font-weight:600;" href='.add_query_arg(array('workspace' => 1), $project_link ).'>'.__("Open Workspace ", ET_DOMAIN).' <i class="fa fa-arrow-right"></i></a>';
-        }
-    }
+
     ?>
 
     <?php
     // dispute form
-    if( Fre_ReportForm::AccessReport()
-            && ($post->post_status == 'disputing' || $post->post_status == 'disputed')
-            && !isset($_REQUEST['workspace'])
-        ) {
-            get_template_part('template/project', 'report') ?>
+   {
+            get_template_part('') ?>
     <?php } ?>
 
     <!-- user message -->
