@@ -50,10 +50,10 @@
     //  count author review number
     $count_review  = fre_count_reviews($author_id);
     $count_project = fre_count_user_posts_by_type($user_ID, PROJECT, 'publish');
-	et_get_mobile_header();
+    et_get_mobile_header();
 ?>
 <section class="section section-single-profile">
-	<div class="single-profiles-top">
+    <div class="single-profiles-top">
         <div class="avatar-proflie">
             <?php echo get_avatar( $author_id, 48 ); ?>
         </div><!-- / avatar-proflie -->
@@ -73,7 +73,7 @@
              <?php if($author_available == 'on' || $author_available == '' ){ ?>
                 <div class="contact-link btn-warpper-bid">
                     <a href="#" data-toggle="modal" class="btn-bid invite-freelancer btn-sumary <?php if ( is_user_logged_in() ) { echo 'invite-open';}else{ echo 'login-btn';} ?>"  data-user="<?php echo $convert->post_author ?>">
-                        <?php _e("Invite me to join", ET_DOMAIN) ?>
+                        <?php _e("Tambahkan Teman", ET_DOMAIN) ?>
                     </a>
                     <?php /*
                     <span><?php _e("Or", ET_DOMAIN); ?></span>
@@ -92,7 +92,7 @@
                     if(isset($convert->tax_input['skill']) && $convert->tax_input['skill']){
                         foreach ($convert->tax_input['skill'] as $tax){
                 ?>
-            	<li>
+                <li>
                     <a href="#">
                         <span class="skill-name"><?php echo $tax->name; ?></span>
                     </a>
@@ -145,7 +145,7 @@
             </li>
             <li>
                 <span class="number"><?php if($convert->tax_input['country']){ echo $convert->tax_input['country']['0']->name;} ?></span>
-                <?php _e('Location', ET_DOMAIN) ?>
+                <?php _e('Nomo hp', ET_DOMAIN) ?>
             </li>
         </ul>
 
@@ -153,34 +153,11 @@
     </div>
     <!--// freelancer info -->
     <?php } else { ?>
-        <!-- employer info  !-->
-        <div class="info-bid-wrapper">
-            <ul class="bid-top">
-                <li>
-                    <span class="number"><?php echo fre_count_user_posts_by_type($author_id,'project','"publish","complete","close" ', true); ?></span>
-                    <?php _e("Project posted", ET_DOMAIN); ?>
-                </li>
-                <li>
-                    <span class="number"><?php echo   fre_price_format(fre_count_total_user_spent($author_id));;?></span>
-                    <?php _e('Total spent ', ET_DOMAIN) ?>
-                </li>
-                <li>
-                    <span class="number">
-                        <?php echo fre_count_user_posts_by_type($author_id,'project', 'complete');?>
-                    </span>
-                    <?php _e('Hired', ET_DOMAIN) ?>
-                </li>
-            </ul>
-            <div class="clearfix"></div>
-        </div>
-
+       
         <!-- end employer info !-->
     <?php } ?>
     <!-- Author overview -->
-    <div class="content-project-wrapper">
-   		<h2 class="title-content">
-            <?php _e('Overview:', ET_DOMAIN) ?>
-        </h2>
+    
         <?php
             echo $convert->post_content;
             if(function_exists('et_render_custom_field')) {
@@ -201,5 +178,5 @@
     </div>
 </section>
 <?php
-	et_get_mobile_footer();
+    et_get_mobile_footer();
 ?>
