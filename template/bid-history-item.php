@@ -2,7 +2,7 @@
 /**
  * Template part for freelancer work (bid success a project) 
  # this template is loaded in template/bid-history-list.php
- * @since 1.0	
+ * @since 1.0   
  * @package FreelanceEngine
  */
 $author_id = get_query_var('author');
@@ -45,9 +45,9 @@ if(!$current || !isset( $current->project_title )){
                 <div class="rate-it" data-score="<?php echo $current->rating_score; ?>"></div>
             </span>            
         <?php } else if($current->project_status == 'close'){ ?>
-            <span class="status"><?php _e('Job is closed', ET_DOMAIN);?></span>
+            <span class="status"><?php _e('Lelang tutup', ET_DOMAIN);?></span>
         <?php } else { ?>
-            <span class="status"><?php _e('Job in process', ET_DOMAIN);?></span>
+            <span class="status"><?php _e('Lelang dalam proses', ET_DOMAIN);?></span>
         <?php } ?>
         <div class="clearfix"></div>
     </div>

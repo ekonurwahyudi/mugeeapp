@@ -38,16 +38,10 @@ query_posts( array(  'post_status' => array('publish', 'complete'), 'post_type' 
             <div class="btn-tabs-wrapper">
                 <div class="work-history-heading">
                     <a href="#" class="work-history-title" >
-                        <?php printf(__('Works History (%s)', ET_DOMAIN), fre_count_user_posts($author_id, PROJECT) ) ?>
+                        <?php printf(__('Ikan Dilelang (%s)', ET_DOMAIN), fre_count_user_posts($author_id, PROJECT) ) ?>
                     </a>
                     <div class="project-status-filter" >
-                        <select class="status-filter " name="post_status" data-chosen-width="100%" data-chosen-disable-search="1"
-                            data-placeholder="<?php _e("Select a status", ET_DOMAIN); ?>">
-                            <option value=""><?php _e("Select a status", ET_DOMAIN); ?></option>
-                            <?php foreach ($status as $key => $stat) {
-                                echo '<option value="'.$key.'">'.$stat.'</option>' ;
-                            }  ?>
-                        </select>
+                        
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -70,7 +64,7 @@ query_posts( array(  'post_status' => array('publish', 'complete'), 'post_type' 
         </div><!-- / .tab-porfolio -->
     </div><!-- / .tab-content -->
     <?php
-	// $author_id = get_query_var('author');
+    // $author_id = get_query_var('author');
  //    if(is_page_template('page-profile.php')) {
  //        global $user_ID;
  //        $author_id = $user_ID;

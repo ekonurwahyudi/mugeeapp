@@ -5,20 +5,20 @@
  * @since 1.1 
  * @package FreelanceEngine
  */
-	$author_id = get_query_var('author');
-	if(is_page_template('page-profile.php')) {
-	    global $user_ID;
-	    $author_id = $user_ID;
-	}
+    $author_id = get_query_var('author');
+    if(is_page_template('page-profile.php')) {
+        global $user_ID;
+        $author_id = $user_ID;
+    }
 
-	global $wp_query, $ae_post_factory, $post;
+    global $wp_query, $ae_post_factory, $post;
 
-	$post_object = $ae_post_factory->get( PROJECT );
-	$current     = $post_object->current_post;
+    $post_object = $ae_post_factory->get( PROJECT );
+    $current     = $post_object->current_post;
 
-	if(!$current){
-	    return;
-	}
+    if(!$current){
+        return;
+    }
 ?>
 
 <li class="bid-item">
@@ -42,9 +42,9 @@
                 <div class="rate-it" data-score="<?php echo $current->rating_score; ?>"></div>
             </span>            
         <?php } else if($current->post_status == 'close'){ ?>
-            <span class="status"><?php _e('Job is closed', ET_DOMAIN);?></span>
+            <span class="status"><?php _e('Lelang ikan ditutup', ET_DOMAIN);?></span>
         <?php } else { ?>
-            <span class="status"><?php _e('Job in process', ET_DOMAIN);?></span>
+            <span class="status"><?php _e('Ikan Sedang dilelang', ET_DOMAIN);?></span>
         <?php } ?>
     </div>
 </li>
