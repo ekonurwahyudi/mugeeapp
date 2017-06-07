@@ -18,10 +18,8 @@
             <span class="position"><?php echo $convert->et_professional_title ?></span>
         </div>
     </div>
-    
     <ul class="wrapper-achivement">
         <li>          
-    
             <div class="rate-it" data-score="<?php echo $convert->rating_score ; ?>"></div>      
         </li>
         <li><span><?php if(!empty($convert->experience)) echo '+ '.$convert->experience;  ?> </span></li>
@@ -38,7 +36,7 @@
                     <?php echo $convert->bid_time_text; ?>
                 </span>
             <?php }else { ?>
-                <span class="number"><?php _e("In Process", ET_DOMAIN); ?></span>
+                <span class="number"><?php _e("Dalam proses", ET_DOMAIN); ?></span>
             <?php } ?>
         </div>
         <p class="btn-warpper-bid col-md-3 number-price-project block-bid">
@@ -50,7 +48,7 @@
         */
         if( $user_ID == $project->post_author && $project_status == 'publish' ){ ?>
             <button href="#" id="<?php the_ID();?>" rel="<?php echo $project->ID;?>" class="btn-sumary btn-bid btn-accept-bid btn-bid-status">
-                <?php _e('Accept',ET_DOMAIN) ; ?>
+                <?php _e('Terima',ET_DOMAIN) ; ?>
             </button>
             <?php do_action('ae_bid_item_template', $convert, $project ); ?>
             <span class="confirm"></span>
