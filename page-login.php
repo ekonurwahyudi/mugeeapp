@@ -2,7 +2,7 @@
 	et_get_mobile_header();
 	the_post();
 ?>
-<div class="container">
+	<div class="container">
 	<!-- block control  -->
 	<div class="row block-posts" id="post-control">
 		<div class="col-md-12 posts-container" id="posts_control">
@@ -40,7 +40,7 @@
         <div class="clearfix"></div>
 	</div>
 	<!--// block control  -->
-</div>
+	</div>
 <?php
 	et_get_mobile_footer();
 ?>
