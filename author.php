@@ -1,102 +1,102 @@
 <?php
     global $wp_query, $ae_post_factory, $post, $user_ID;
-
-    $post_object      = $ae_post_factory->get(PROFILE);
-    $author_id        = get_query_var( 'author' );
-    $author_name      = get_the_author_meta('display_name', $author_id);
-    $author_available = get_user_meta($author_id, 'user_available', true);
+		$author_id        = get_query_var( 'author' );
+		$author_name      = get_the_author_meta('display_name', $author_id);
+		$author_available = get_user_meta($author_id, 'user_available', true);
+		$post_object      = $ae_post_factory->get(PROFILE);
+   
     // get user profile id
     $profile_id       = get_user_meta($author_id, 'user_profile_id', true);
     // get post profile
     $profile          = get_post($profile_id);
     $convert          = '';
 
-    if( $profile && !is_wp_error($profile) ){
+		if( $profile && !is_wp_error($profile) ){
         $convert = $post_object->convert( $profile );
-    }
+		}
 
-    $user       = get_userdata( $author_id );
-    $ae_users   = AE_Users::get_instance();
-    $user_data  = $ae_users->convert($user);
-    $user_role  = ae_user_role( $author_id );
+		$user       = get_userdata( $author_id );
+		$ae_users   = AE_Users::get_instance();
+		$user_data  = $ae_users->convert($user);
+		$user_role  = ae_user_role( $author_id );
 
-    // try to check and add profile up current user dont have profile
-    if(!$convert && $user_role == FREELANCER ) {
+		// try to check and add profile up current user dont have profile
+			if(!$convert && $user_role == FREELANCER ) {
 
-        $profile_post = get_posts(array('post_type' => PROFILE,'author' => $author_id));
-        if(!empty($profile_post)) {
-
-            $profile_post = $profile_post[0];
-            $convert      = $post_object->convert( $profile_post );
-            $profile_id   = $convert->ID;
-            update_user_meta($author_id, 'user_profile_id', $profile_id);
+				$profile_post = get_posts(array('post_type' => PROFILE,'author' => $author_id));
+				if(!empty($profile_post)) {
+	
+				$profile_post = $profile_post[0];
+					$convert      = $post_object->convert( $profile_post );
+				$profile_id   = $convert->ID;
+				update_user_meta($author_id, 'user_profile_id', $profile_id);
 
         } else {
 
-            $convert = $post_object->insert( array(
-                'post_status'  => 'publish' ,
-                'post_author'  => $author_id ,
-                'post_title'   => $author_name ,
-                'post_content' => ''
+				$convert = $post_object->insert( array(
+					'post_status'  => 'publish' ,
+						'post_author'  => $author_id ,
+						'post_title'   => $author_name ,
+						'post_content' => ''
                 )
-            );
+				);
 
-            $convert    = $post_object->convert( get_post($convert->ID) );
-            $profile_id = $convert->ID;
+				$convert    = $post_object->convert( get_post($convert->ID) );
+				$profile_id = $convert->ID;
         }
 
     }
 
-    //  count author review number
-    $count_review  = fre_count_reviews($author_id);
-    $count_project = fre_count_user_posts_by_type($user_ID, PROJECT, 'publish');
-	et_get_mobile_header();
+		//  count author review number
+		$count_review  = fre_count_reviews($author_id);
+		$count_project = fre_count_user_posts_by_type($user_ID, PROJECT, 'publish');
+		et_get_mobile_header();
 ?>
-<section class="section section-single-profile">
-	<div class="single-profiles-top">
-        <div class="avatar-proflie">
+	<section class="section section-single-profile">
+		<div class="single-profiles-top">
+			<div class="avatar-proflie">
             <?php echo get_avatar( $author_id, 48 ); ?>
-        </div><!-- / avatar-proflie -->
-        <div class="user-proflie">
-            <div class="profile-infor">
-                <span class="name">
+			</div><!-- / avatar-proflie -->
+			<div class="user-proflie">
+				<div class="profile-infor">
+					<span class="name">
                     <?php echo $author_name ?>
-                </span>
-                <span class="position">
-                <?php if($user_role == FREELANCER) {
+					</span>
+					<span class="position">
+					<?php if($user_role == FREELANCER) {
                     echo $profile->et_professional_title;
                 }else{
                     echo $user_data->location;
                 } ?>
-                </span>
-            </div>
+					</span>
+				</div>
              <?php if($author_available == 'on' || $author_available == '' ){ ?>
                 <div class="contact-link btn-warpper-bid">
-                    <a href="#" data-toggle="modal" class="btn-bid invite-freelancer btn-sumary <?php if ( is_user_logged_in() ) { echo 'invite-open';}else{ echo 'login-btn';} ?>"  data-user="<?php echo $convert->post_author ?>">
+						<a href="#" data-toggle="modal" class="btn-bid invite-freelancer btn-sumary <?php if ( is_user_logged_in() ) { echo 'invite-open';}else{ echo 'login-btn';} ?>"  data-user="<?php echo $convert->post_author ?>">
                         <?php _e("Invite me to join", ET_DOMAIN) ?>
                     </a>
                     <?php /*
                     <span><?php _e("Or", ET_DOMAIN); ?></span>
-                    <a href="#" class="<?php if ( is_user_logged_in() ) {echo 'contact-me';} else{ echo 'login-btn';} ?> fre-contact"  data-user="<?php echo $convert->post_author ?>" data-user="<?php echo $convert->post_author ?>">
+						<a href="#" class="<?php if ( is_user_logged_in() ) {echo 'contact-me';} else{ echo 'login-btn';} ?> fre-contact"  data-user="<?php echo $convert->post_author ?>" data-user="<?php echo $convert->post_author ?>">
                         <?php _e("Contact me", ET_DOMAIN) ?>
                     </a>
-                    */
+						*/
                     ?>
-                </div>
+					</div>
             <?php } ?>
-        </div><!-- / user-proflie -->
+			</div><!-- / user-proflie -->
         <div class="clearfix"></div>
         <?php if(fre_share_role() || $user_role == FREELANCER) { ?>
             <ul class="list-skill">
                 <?php
-                    if(isset($convert->tax_input['skill']) && $convert->tax_input['skill']){
+						if(isset($convert->tax_input['skill']) && $convert->tax_input['skill']){
                         foreach ($convert->tax_input['skill'] as $tax){
                 ?>
-            	<li>
+					<li>
                     <a href="#">
                         <span class="skill-name"><?php echo $tax->name; ?></span>
                     </a>
-                </li>
+					</li>
                 <?php
                         }
                     }
@@ -118,31 +118,32 @@
             </li>
             <li>
                 <span class="number">
-                    <div class="rate-it" data-score="<?php echo $convert->rating_score ; ?>"></div>
+						<div class="rate-it" data-score="<?php echo $convert->rating_score ; ?>"></div>
                 </span>
                 <?php _e('Rating', ET_DOMAIN) ?>
             </li>
             <li>
                 <span class="number">
-                    <?php echo $convert->experience; ?>
+						<?php echo $convert->experience; ?>
                 </span>
                 <?php _e('Experience', ET_DOMAIN) ?>
             </li>
         </ul>
-
+	
         <div class="clearfix"></div>
         <div class="line-mid"></div>
         <div class="clearfix"></div>
 
         <ul class="bid-top">
-            <li>
+				<li>
                 <span class="number"><?php echo $bid_posts; ?></span>
                 <?php _e('Projects Worked', ET_DOMAIN) ?>
-            </li>
+				</li>
             <li>
                 <span class="number"><?php echo fre_price_format(fre_count_total_user_earned($author_id)); ?></span>
                 <?php _e('Total earned', ET_DOMAIN) ?>
             </li>
+			
             <li>
                 <span class="number"><?php if($convert->tax_input['country']){ echo $convert->tax_input['country']['0']->name;} ?></span>
                 <?php _e('Location', ET_DOMAIN) ?>

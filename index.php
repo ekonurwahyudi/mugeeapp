@@ -1,3 +1,6 @@
+
+
+
 <?php
 	et_get_mobile_header();
 ?>
